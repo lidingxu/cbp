@@ -1,0 +1,9 @@
+g 72 1000 0.6
+
+status: JobSolveStatus.FEASIBLE_SOLUTION
+soltime: 3600.32
+nodes: 0
+relgap: 6300000000.0
+obj: 63.0
+best_bound: 0.0
+relgap_round: 6300000000.0

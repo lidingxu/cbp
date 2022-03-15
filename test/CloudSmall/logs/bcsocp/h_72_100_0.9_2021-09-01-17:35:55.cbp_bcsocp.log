@@ -1,0 +1,71 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_ClockType                               1
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_Threads                                 1
+CPXPARAM_RandomSeed                              202001241
+CPXPARAM_TimeLimit                               3600
+CPXPARAM_MIP_Tolerances_AbsMIPGap                1
+1 of 1 MIP starts provided solutions.
+MIP start 'm1' defined initial solution with objective 8.0000.
+Tried aggregator 1 time.
+Reduced MIQCP has 916 rows, 2416 columns, and 4024 nonzeros.
+Reduced MIQCP has 808 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIQCP has 8 quadratic constraints.
+Presolve time = 0.00 sec. (2.13 ticks)
+Probing time = 0.01 sec. (3.19 ticks)
+Clique table members: 800.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.01 sec. (2.20 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            8.0000        0.0000           100.00%
+      0     0        5.5704     0        8.0000        0.0000      157  100.00%
+      0     0        6.2356    12        8.0000       Cone: 8     1032  100.00%
+      0     0        6.2356    11        8.0000      Cone: 16     1079  100.00%
+      0     0        6.2356    21        8.0000      Cone: 24     1118  100.00%
+      0     0        6.2356    27        8.0000      Cone: 32     1180  100.00%
+      0     0        6.2356    36        8.0000      Cone: 40     1244  100.00%
+      0     0        6.2356    44        8.0000      Cone: 48     1321  100.00%
+      0     0        6.2356    55        8.0000     Cone: 856     2456  100.00%
+      0     0        6.2356   805        8.0000    Cone: 1637     3779  100.00%
+      0     0        6.2356   688        8.0000    Cone: 2235     5154  100.00%
+      0     0        6.2356   799        8.0000    Cone: 2776     6347  100.00%
+      0     0        6.2356   793        8.0000    Cone: 3066     7939  100.00%
+      0     0        6.2356   801        8.0000    Cone: 3475     9396  100.00%
+      0     0        6.2356   801        8.0000    Cone: 3901    11261  100.00%
+      0     0        6.2356   802        8.0000    Cone: 4167    13189  100.00%
+      0     0        6.2356   803        8.0000    Cone: 4481    14384  100.00%
+      0     0        6.2356   796        8.0000    Cone: 4842    16269  100.00%
+      0     0        6.2356   703        8.0000    Cone: 5028    17923  100.00%
+      0     0        6.2356   701        8.0000    Cone: 5252    18979  100.00%
+      0     0        6.2356   701        8.0000    Cone: 5479    19335  100.00%
+      0     0        6.2356   701        8.0000    Cone: 5790    19741  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6006    20040  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6130    20236  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6217    20385  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6259    20472  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6283    20519  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6294    20538  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6303    20552  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6307    20561  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6310    20564  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6314    20575  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6318    20583  100.00%
+      0     0        6.2356   701        8.0000    Cone: 6319    20588  100.00%
+      0     0        6.2356   701        8.0000        6.2356    20588   22.05%
+      0     0        7.0000   492        8.0000     Cuts: 129    21548   12.50%
+
+Lift and project cuts applied:  71
+Gomory fractional cuts applied:  1
+Cone linearizations applied:  1136
+
+Root node processing (before b&c):
+  Real time             =   45.44 sec. (75140.49 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) =   45.44 sec. (75140.49 ticks)

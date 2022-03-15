@@ -1,0 +1,83 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_ClockType                               1
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_Threads                                 1
+CPXPARAM_RandomSeed                              202001241
+CPXPARAM_TimeLimit                               3600
+CPXPARAM_MIP_Tolerances_AbsMIPGap                1
+1 of 1 MIP starts provided solutions.
+MIP start 'm1' defined initial solution with objective 7.0000.
+Tried aggregator 1 time.
+Reduced MIQCP has 814 rows, 2114 columns, and 3521 nonzeros.
+Reduced MIQCP has 707 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIQCP has 7 quadratic constraints.
+Presolve time = 0.00 sec. (1.89 ticks)
+Probing time = 0.01 sec. (3.12 ticks)
+Clique table members: 700.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (2.10 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                            7.0000        0.0000           100.00%
+      0     0        4.6395     0        7.0000        0.0000      160  100.00%
+      0     0        5.0866    11        7.0000       Cone: 7      946  100.00%
+      0     0        5.0866     7        7.0000      Cone: 14      989  100.00%
+      0     0        5.0866    19        7.0000      Cone: 21     1044  100.00%
+      0     0        5.0866    31        7.0000      Cone: 28     1087  100.00%
+      0     0        5.0866    41        7.0000      Cone: 35     1135  100.00%
+      0     0        5.0866    51        7.0000      Cone: 42     1184  100.00%
+      0     0        5.0866    56        7.0000     Cone: 749     2230  100.00%
+      0     0        5.0866   702        7.0000    Cone: 1420     3865  100.00%
+      0     0        5.0866   698        7.0000    Cone: 1945     5242  100.00%
+      0     0        5.0866   696        7.0000    Cone: 2457     5925  100.00%
+      0     0        5.0866   597        7.0000    Cone: 2797     6875  100.00%
+      0     0        5.0866   601        7.0000    Cone: 3119     7675  100.00%
+      0     0        5.0866   600        7.0000    Cone: 3382     9832  100.00%
+      0     0        5.0866   602        7.0000    Cone: 3631    12699  100.00%
+      0     0        5.0866   600        7.0000    Cone: 3919    13853  100.00%
+      0     0        5.0866   702        7.0000    Cone: 4202    14347  100.00%
+      0     0        5.0866   601        7.0000    Cone: 4458    15451  100.00%
+      0     0        5.0866   601        7.0000    Cone: 4611    15785  100.00%
+      0     0        5.0866   601        7.0000    Cone: 4793    16140  100.00%
+      0     0        5.0866   601        7.0000    Cone: 4937    16369  100.00%
+      0     0        5.0866   601        7.0000    Cone: 5062    16576  100.00%
+      0     0        5.0866   601        7.0000    Cone: 5127    16710  100.00%
+      0     0        5.0866   601        7.0000        5.0866    16710   27.33%
+      0     0        5.0866   695        7.0000     Cuts: 127    18272   27.33%
+      0     0        5.0866   697        7.0000     Cuts: 191    18909   27.33%
+      0     2        5.0866   697        7.0000        5.0866    18909   27.33%
+Elapsed time = 32.24 sec. (58148.96 ticks, tree = 0.01 MB, solutions = 1)
+      1     3        5.0876   652        7.0000        5.0874    19826   27.32%
+      2     4        5.1248   531        7.0000        5.0876    20902   27.32%
+      3     5        5.1449   504        7.0000        5.0876    21287   27.32%
+      4     6        5.1301   546        7.0000        5.0876    21309   27.32%
+      6     8        5.1427   551        7.0000        5.0876    21323   27.32%
+      8    10        5.1493   564        7.0000        5.0876    21341   27.32%
+     10    12        5.1577   532        7.0000        5.0876    21419   27.32%
+     17    19        5.1729   508        7.0000        5.0876    21640   27.32%
+     22    24        5.1718   541        7.0000        5.0876    21973   27.32%
+     40    42        5.1976   504        7.0000        5.0876    22560   27.32%
+Elapsed time = 34.63 sec. (62961.41 ticks, tree = 0.58 MB, solutions = 1)
+     51    53        5.2130   605        7.0000        5.0876    23790   27.32%
+     61    63        5.2090   593        7.0000        5.0876    25749   27.32%
+     83    85        5.2218   557        7.0000        5.0876    28814   27.32%
+    116   118        5.2794   433        7.0000        5.0876    33296   27.32%
+*   140+  119                            6.0000        5.0876            15.21%
+
+Clique cuts applied:  12
+Flow cuts applied:  5
+Mixed integer rounding cuts applied:  38
+Lift and project cuts applied:  29
+Gomory fractional cuts applied:  2
+Cone linearizations applied:  1215
+
+Root node processing (before b&c):
+  Real time             =   32.24 sec. (58144.81 ticks)
+Sequential b&c:
+  Real time             =    4.45 sec. (8970.25 ticks)
+                          ------------
+Total (root+branch&cut) =   36.69 sec. (67115.06 ticks)

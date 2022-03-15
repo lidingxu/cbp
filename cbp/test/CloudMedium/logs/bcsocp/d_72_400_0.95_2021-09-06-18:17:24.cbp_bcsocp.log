@@ -1,0 +1,44 @@
+Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+CPXPARAM_ClockType                               1
+CPXPARAM_Read_DataCheck                          1
+CPXPARAM_Threads                                 1
+CPXPARAM_RandomSeed                              202001241
+CPXPARAM_TimeLimit                               3600
+CPXPARAM_MIP_Tolerances_AbsMIPGap                1
+1 of 1 MIP starts provided solutions.
+MIP start 'm1' defined initial solution with objective 87.0000.
+Tried aggregator 1 time.
+Reduced MIQCP has 35374 rows, 104574 columns, and 174261 nonzeros.
+Reduced MIQCP has 34887 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIQCP has 87 quadratic constraints.
+Presolve time = 0.08 sec. (83.82 ticks)
+Probing time = 0.06 sec. (27.66 ticks)
+Clique table members: 34800.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.06 sec. (90.37 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                           87.0000        0.0000           100.00%
+      0     0       20.2101     0       87.0000        0.0000      900  100.00%
+      0     0       26.2597    85       87.0000      Cone: 87    35798  100.00%
+      0     0       26.2597    86       87.0000     Cone: 171    36660  100.00%
+      0     0       26.2597   225       87.0000     Cone: 251    37439  100.00%
+      0     0       26.2597   314       87.0000     Cone: 333    38313  100.00%
+      0     0       26.2597   366       87.0000     Cone: 409    39223  100.00%
+      0     0       26.2597   444       87.0000     Cone: 486    39940  100.00%
+      0     0       26.2597   520       87.0000   Cone: 35367   324394  100.00%
+      0     0       26.2597 20572       87.0000   Cone: 50140   591881  100.00%
+      0     0       26.2597 23456       87.0000        0.0000   591881  100.00%
+
+Cone linearizations applied:  60818
+
+Root node processing (before b&c):
+  Real time             = 3600.08 sec. (4123886.42 ticks)
+Sequential b&c:
+  Real time             =    0.00 sec. (0.00 ticks)
+                          ------------
+Total (root+branch&cut) = 3600.08 sec. (4123886.42 ticks)

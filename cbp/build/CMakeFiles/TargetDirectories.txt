@@ -1,0 +1,3 @@
+/home/xld/下载/bpsmbp/build/CMakeFiles/rebuild_cache.dir
+/home/xld/下载/bpsmbp/build/CMakeFiles/edit_cache.dir
+/home/xld/下载/bpsmbp/build/CMakeFiles/cbp.dir

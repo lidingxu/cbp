@@ -1,0 +1,5 @@
+cbp/is_misocp=TRUE
+cbp/is_bd_tight=TRUE
+cbp/is_heur=FALSE
+heuristics/rmp/freq=-1
+cbp/is_adapt_points=FALSE
