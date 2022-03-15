@@ -42,7 +42,7 @@ The `data` folder contains three benchmarks `CloudSmall`, `CloudMedium`, `CloudB
 
 The capacity constraint of conic submodular binpacking problems is the following
 ```
-\sum_{i=1}^{n} a_ix_i + \sigma \sqrt{\sum_{i=1}^{n} b_ix_i} \le c
+\sum_{i=1}^{n} a_i x_i + \sigma \sqrt{\sum_{i=1}^{n} b_i x_i} \le c
 ```
 
 The `.cbp` file organizes the instance data in the following way:
