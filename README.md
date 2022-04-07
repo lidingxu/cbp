@@ -54,7 +54,7 @@ In the first line, the statistics of the instance is given:
   * `type`: one of three data generation types in `d` (distributinally robust case), `g` (Gaussian case) and `h` (Hoeffding inequality case).
   * `c`:  a positive real of capacity.
   * `n`:  a positive integer of item size.
-  * `risk_level`: a real in [0,1] of risk level. 
+  * `alpha`: a real in [0,1] of risk level. 
 
 The second line gives the `\sigma`.
 
@@ -95,11 +95,11 @@ The algorithm option is summarized in the following table.
 
 |                    | name in the paper| cbp/is_misocp |  cbp/is_bd_tight     |  cbp/is_adapt_points| cbp/is_heur   |heuristics/rmp/freq| cbp/is_parallelscplex| 
 |--------------------|------------------|---------------|----------------------|---------------------|---------------|-------------------|-------|
-| `bpsocp.set`       |      B&P-SOCP    |  TRUE         |  FALSE               | FALSE               |   -1          | FALSE             | FALSE  |
-| `bppl.set`         |      B&P-PWL     |  FALSE        |  TRUE                | FALSE               |  -1           | FALSE             | FALSE  |
-| `bphybrid.set`     |    B&P-Hybrid    |  FALSE        |  TRUE                | TRUE                |  -1           | FALSE             | FALSE  |
-| `bphybridph.set`   |    B&P-Hybrid*   |  FALSE        |  TRUE                | FALSE               |  1           | FALSE             | FALSE  |
-| `bphybridphadd.set`|    B&P-Hybrid**  |  FALSE        |  TRUE                | TRUE                | 1            | FALSE             | FALSE  |
+| `bpsocp.set`       |      B&P-SOCP    |  TRUE         |  FALSE               | FALSE               |  FALSE         | -1            | FALSE  |
+| `bppl.set`         |      B&P-PWL     |  FALSE        |  TRUE                | FALSE               |  FALSE          | -1            | FALSE  |
+| `bphybrid.set`     |    B&P-Hybrid    |  FALSE        |  TRUE                | FALSE              |  TRUE         | -1             | FALSE  |
+| `bphybridph.set`   |    B&P-Hybrid*   |  FALSE        |  TRUE                | FALSE               |  TRUE            | 1             | FALSE  |
+| `bphybridphadd.set`|    B&P-Hybrid**  |  FALSE        |  TRUE                | TRUE                | TRUE             | 1          | FALSE  |
 
 
 
@@ -107,8 +107,25 @@ The algorithm option is summarized in the following table.
 
 ## References
 
-If you find cbp useful in your work, we kindly request that you cite the following paper draft ([arXiv preprint]()), which is recommended reading for advanced users:
+If you find cbp useful in your work, we kindly request that you cite the following paper draft ([arXiv preprint](https://doi.org/10.48550/arxiv.2203.00284)), which is recommended reading for advanced users:
 
 
+    @misc{https://doi.org/10.48550/arxiv.2203.00284,
+      doi = {10.48550/ARXIV.2203.00284},
+      
+      url = {https://arxiv.org/abs/2203.00284},
+      
+      author = {Pelegrín, Mercedes and Xu, Liding},
+      
+      keywords = {Optimization and Control (math.OC), Discrete Mathematics (cs.DM), FOS: Mathematics, FOS: Mathematics, FOS: Computer and information sciences, FOS: Computer and information sciences, 90C11, 90C27},
+      
+      title = {Continuous Covering on Networks: Strong Mixed Integer Programming Formulations},
+      
+      publisher = {arXiv},
+      
+      year = {2022},
+      
+      copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
+    }
 
 
