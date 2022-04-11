@@ -107,19 +107,19 @@ The algorithm option is summarized in the following table.
 
 ## References
 
-If you find cbp useful in your work, we kindly request that you cite the following paper draft ([arXiv preprint](https://doi.org/10.48550/arxiv.2203.00284)), which is recommended reading for advanced users:
+If you find cbp useful in your work, we kindly request that you cite the following paper draft ([arXiv preprint](https://arxiv.org/abs/2204.00320)), which is recommended reading for advanced users:
 
 
-    @misc{https://doi.org/10.48550/arxiv.2203.00284,
-      doi = {10.48550/ARXIV.2203.00284},
+    @misc{https://doi.org/10.48550/arxiv.2204.00320,
+      doi = {10.48550/ARXIV.2204.00320},
       
-      url = {https://arxiv.org/abs/2203.00284},
+      url = {https://arxiv.org/abs/2204.00320},
       
-      author = {Pelegrín, Mercedes and Xu, Liding},
+      author = {Xu, Liding and D'Ambrosio, Claudia and Vanier, Sonia Haddad and Traversi, Emiliano},
       
-      keywords = {Optimization and Control (math.OC), Discrete Mathematics (cs.DM), FOS: Mathematics, FOS: Mathematics, FOS: Computer and information sciences, FOS: Computer and information sciences, 90C11, 90C27},
+      keywords = {Optimization and Control (math.OC), FOS: Mathematics, FOS: Mathematics},
       
-      title = {Continuous Covering on Networks: Strong Mixed Integer Programming Formulations},
+      title = {Branch and Price for Submodular Bin Packing},
       
       publisher = {arXiv},
       
@@ -127,5 +127,6 @@ If you find cbp useful in your work, we kindly request that you cite the followi
       
       copyright = {Creative Commons Attribution Non Commercial No Derivatives 4.0 International}
     }
+
 
 
