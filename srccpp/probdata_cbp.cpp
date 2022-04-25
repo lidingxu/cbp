@@ -91,7 +91,7 @@ ProbDataCBP::~ProbDataCBP()
 /** release scip reference in probelme data*/
 SCIP_RETCODE ProbDataCBP::releaseAll(
 	SCIP*              scip                /**< SCIP data structure */
-) {
+){
 	// release packing varibles
 	int sizevar = 0, numvar =0 , numcons =0;
 	for (auto it = p_vars.begin(); it != p_vars.end(); it++) {

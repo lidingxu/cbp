@@ -73,7 +73,7 @@ use the `set` command to set the parameters of the cbp algorithms:
 
   * `limits/time `: a positve real of the time limit in CPU seconds.
   * `cbp/is_misocp`:  a Boolean (TRUE/FALSE) value indicating wether to use the LP-BC algorithm / PWL-BC algorithm to solve the pricing problem (default: FALSE).
-  * `cbp/is_parallelscplex`: a Boolean (TRUE/FALSE) value indicating wether to use call CPLEX in parallelism mode (default: FALSE).
+  * `cbp/is_parallelscplex`: a Boolean (TRUE/FALSE) value indicating wether to use CPLEX in parallelism mode (default: FALSE).
   * `cbp/is_bd_tight`: a Boolean (TRUE/FALSE) value indicating wether to use the bound tightening procedure for the PWL-BC algorithm (default: TRUE).
   * `cbp/is_adapt_points`: a Boolean (TRUE/FALSE) value indicating wether to use the two-stage adaptive breakpoints the PWL-BC algorithm (default: FALSE).
   * `cbp/is_heur`: a Boolean (FALSE/TRUE) value indicating wether to use the heuritic pricing algorithm  and the hybrid pricing strategy for the pricing problem (default: TRUE).
