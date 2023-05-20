@@ -33,6 +33,8 @@ SCIP_DECL_TABLEOUTPUT(StatisticsTable::scip_output){
     SCIP_Real shf_avg_gap = exp(shf_log_sum_gap / col_exact) - probdata->stat_pr.shf_param;
     SCIPinfoMessage(scip, file, "pricing column exact: %d\n", col_exact);   
     SCIPinfoMessage(scip, file, "pricing log sum shifted gap: %lf\n", shf_log_sum_gap);     
-    SCIPinfoMessage(scip, file, "pricing avg gap: %lf\n", shf_avg_gap);     
+    SCIPinfoMessage(scip, file, "pricing avg gap: %lf\n", shf_avg_gap); 
+    SCIPinfoMessage(scip, file, "pricing first time:  %lf\n", probdata->stat_pr.cum_sol_time);  
+    SCIPinfoMessage(scip, file, "pricing knn time: %lf\n", probdata->stat_pr.cum_knn_time);     
     return SCIP_OKAY;
 }

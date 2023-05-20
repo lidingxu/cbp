@@ -137,6 +137,7 @@ def optimize(numitem, cap, Dalpha, lst_mu, lst_b, log_file, result_file,  descri
     s = m.solve()
     if s:
         f = result_file
+        print("write result\n")
         m.report()
         status = m.solve_status 
         soltime =  m.solve_details.time

@@ -95,11 +95,11 @@ The algorithm option is summarized in the following table.
 
 |                    | name in the paper| cbp/is_misocp |  cbp/is_bd_tight     |  cbp/is_adapt_points| cbp/is_heur   |heuristics/rmp/freq| cbp/is_parallelscplex| 
 |--------------------|------------------|---------------|----------------------|---------------------|---------------|-------------------|-------|
-| `bpsocp.set`       |      B&P-SOCP    |  TRUE         |  FALSE               | FALSE               |  FALSE         | -1            | FALSE  |
-| `bppl.set`         |      B&P-PWL     |  FALSE        |  TRUE                | FALSE               |  FALSE          | -1            | FALSE  |
-| `bphybrid.set`     |    B&P-Hybrid    |  FALSE        |  TRUE                | FALSE              |  TRUE         | -1             | FALSE  |
-| `bphybridph.set`   |    B&P-Hybrid*   |  FALSE        |  TRUE                | FALSE               |  TRUE            | 1             | FALSE  |
-| `bphybridphadd.set`|    B&P-Hybrid**  |  FALSE        |  TRUE                | TRUE                | TRUE             | 1          | FALSE  |
+| `bpsocp.set`       |      DW-BC    |  TRUE         |  FALSE               | FALSE               |  FALSE         | -1            | FALSE  |
+| `bppl.set`         |      DW-PWL     |  FALSE        |  TRUE                | FALSE               |  FALSE          | -1            | FALSE  |
+| `bphybrid.set`     |    DW-Hybrid    |  FALSE        |  TRUE                | FALSE              |  TRUE         | -1             | FALSE  |
+| `bpheur.set`   |    DW-Hybrid*   |  FALSE        |  TRUE                | FALSE               |  TRUE            | 1             | FALSE  |
+| `bphybridphadd.set`|    DW-Hybrid**  |  FALSE        |  TRUE                | TRUE                | TRUE             | 1          | FALSE  |
 
 
 

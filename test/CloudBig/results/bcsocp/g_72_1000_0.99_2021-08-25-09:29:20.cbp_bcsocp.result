@@ -7,3 +7,4 @@ relgap: 13600000000.0
 obj: 136.0
 best_bound: 0.0
 relgap_round: 13600000000.0
+first_solution: 136

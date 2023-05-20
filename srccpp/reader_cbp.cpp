@@ -124,6 +124,13 @@ SCIP_DECL_READERREAD(ReaderCBP::scip_read) {
 	assert(problemdata != NULL);
 	SCIPdebugMessage("--problem data completed!\n");
 	// deletedobject
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_misocp", &problemdata->algo_conf.is_misocp));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_bd_tight", &problemdata->algo_conf.is_bd_tight));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_heur", &problemdata->algo_conf.is_heur));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_parallelscplex", &problemdata->algo_conf.is_parallelscplex));
+	SCIP_CALL(SCIPgetIntParam(scip,  "cbp/knn_mode", &problemdata->algo_conf.knn_mode));
+	SCIP_CALL(SCIPgetIntParam(scip,  "cbp/kneighbors", &problemdata->algo_conf.kneighbors));
+	SCIP_CALL(SCIPgetRealParam(scip,  "cbp/point_ratio", &problemdata->algo_conf.point_ratio));
 	SCIP_CALL(SCIPcreateObjProb(scip, filename, problemdata, FALSE));
 
 	SCIPdebugMessage("objprob created and creating inital solutions!\n");

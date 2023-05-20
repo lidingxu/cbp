@@ -53,8 +53,6 @@ public:
 	virtual ~PricerConicKnap() {
 	};
 
-
-
 	/** reduced cost pricing method of variable pricer for feasible LPs */
 	virtual SCIP_DECL_PRICERREDCOST(scip_redcost);
 

@@ -1,8 +1,7 @@
-Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
 CPXPARAM_ClockType                               1
 CPXPARAM_Read_DataCheck                          1
 CPXPARAM_Threads                                 1
-CPXPARAM_RandomSeed                              202001241
 CPXPARAM_TimeLimit                               3600
 CPXPARAM_MIP_Tolerances_AbsMIPGap                1
 1 of 1 MIP starts provided solutions.
@@ -11,41 +10,35 @@ Tried aggregator 1 time.
 Reduced MIQCP has 17284 rows, 50484 columns, and 84126 nonzeros.
 Reduced MIQCP has 16842 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Reduced MIQCP has 42 quadratic constraints.
-Presolve time = 0.03 sec. (40.60 ticks)
-Probing time = 0.04 sec. (15.61 ticks)
+Presolve time = 0.07 sec. (40.60 ticks)
+Probing time = 0.09 sec. (15.63 ticks)
 Clique table members: 16800.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
-Root relaxation solution time = 0.02 sec. (38.93 ticks)
+Root relaxation solution time = 0.04 sec. (40.06 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                           42.0000        0.0000           100.00%
-      0     0       21.3865     0       42.0000        0.0000      601  100.00%
-      0     0       23.8622    48       42.0000      Cone: 42    17480  100.00%
-      0     0       23.8622    50       42.0000      Cone: 84    18012  100.00%
-      0     0       23.8622   128       42.0000     Cone: 126    18487  100.00%
-      0     0       23.8622   188       42.0000     Cone: 168    18888  100.00%
-      0     0       23.8622   232       42.0000     Cone: 210    19532  100.00%
-      0     0       23.8622   279       42.0000     Cone: 252    20025  100.00%
-      0     0       23.8622   324       42.0000   Cone: 17094    42808  100.00%
-      0     0       23.8622 16837       42.0000   Cone: 32046   103811  100.00%
-      0     0       23.8622 16664       42.0000   Cone: 37544   208008  100.00%
-      0     0       23.8622 16335       42.0000   Cone: 41220   507378  100.00%
-      0     0       23.8622 15193       42.0000   Cone: 43678   633226  100.00%
-      0     0       23.8622 15975       42.0000   Cone: 46203   662429  100.00%
-      0     0       23.8622 15986       42.0000   Cone: 48659   738052  100.00%
-      0     0       23.8622 16332       42.0000   Cone: 50253   827233  100.00%
-      0     0       23.8622 16793       42.0000   Cone: 53223   865515  100.00%
-      0     0       23.8622 16409       42.0000        0.0000   865515  100.00%
+      0     0       21.3865     0       42.0000        0.0000      610  100.00%
+      0     0       23.8622    47       42.0000      Cone: 42    17463  100.00%
+      0     0       23.8622    46       42.0000      Cone: 84    18074  100.00%
+      0     0       23.8622   122       42.0000     Cone: 126    18489  100.00%
+      0     0       23.8622   192       42.0000     Cone: 168    19045  100.00%
+      0     0       23.8622   239       42.0000     Cone: 210    19591  100.00%
+      0     0       23.8622   279       42.0000     Cone: 252    20200  100.00%
+      0     0       23.8622   319       42.0000   Cone: 17094    43609  100.00%
+      0     0       23.8622 16834       42.0000   Cone: 32416    89033  100.00%
+      0     0       23.8622 15955       42.0000   Cone: 36219   184195  100.00%
+      0     0       23.8622 16016       42.0000        0.0000   184195  100.00%
 
-Cone linearizations applied:  54300
+Cone linearizations applied:  38797
 
 Root node processing (before b&c):
-  Real time             = 3600.07 sec. (3811719.90 ticks)
+  Real time             = 3600.08 sec. (1803946.63 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) = 3600.07 sec. (3811719.90 ticks)
+Total (root+branch&cut) = 3600.08 sec. (1803946.63 ticks)

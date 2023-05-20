@@ -1,8 +1,7 @@
-Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
 CPXPARAM_ClockType                               1
 CPXPARAM_Read_DataCheck                          1
 CPXPARAM_Threads                                 1
-CPXPARAM_RandomSeed                              202001241
 CPXPARAM_TimeLimit                               3600
 CPXPARAM_MIP_Tolerances_AbsMIPGap                1
 1 of 1 MIP starts provided solutions.
@@ -11,32 +10,32 @@ Tried aggregator 1 time.
 Reduced MIQCP has 197392 rows, 588392 columns, and 980588 nonzeros.
 Reduced MIQCP has 196196 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Reduced MIQCP has 196 quadratic constraints.
-Presolve time = 0.55 sec. (478.98 ticks)
-Probing time = 0.60 sec. (138.11 ticks)
+Presolve time = 0.94 sec. (478.98 ticks)
+Probing time = 1.18 sec. (138.09 ticks)
 Clique table members: 196000.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
-Root relaxation solution time = 0.33 sec. (514.53 ticks)
+Root relaxation solution time = 0.52 sec. (513.92 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                          196.0000        0.0000           100.00%
-      0     0       47.6050     0      196.0000        0.0000     2099  100.00%
-      0     0       56.7534   186      196.0000     Cone: 196   200831  100.00%
-      0     0       56.7534   136      196.0000     Cone: 300   202461  100.00%
-      0     0       56.7534   384      196.0000     Cone: 478   204796  100.00%
-      0     0       56.7534   621      196.0000     Cone: 651   207018  100.00%
-      0     0       56.7534   796      196.0000     Cone: 813   209415  100.00%
-      0     0       56.7534   992      196.0000     Cone: 986   211906  100.00%
-      0     0       56.7534  1133      196.0000        0.0000   214589  100.00%
+      0     0       47.6050     0      196.0000        0.0000     1923  100.00%
+      0     0       56.7534   186      196.0000     Cone: 196   200936  100.00%
+      0     0       56.7534   130      196.0000     Cone: 297   202774  100.00%
+      0     0       56.7534   385      196.0000     Cone: 472   204897  100.00%
+      0     0       56.7534   633      196.0000     Cone: 648   207143  100.00%
+      0     0       56.7534   849      196.0000     Cone: 826   209370  100.00%
+      0     0       56.7534  1013      196.0000    Cone: 1004   211663  100.00%
+      0     0       56.7534  1169      196.0000        0.0000   214226  100.00%
 
-Cone linearizations applied:  197155
+Cone linearizations applied:  197182
 
 Root node processing (before b&c):
-  Real time             = 3600.41 sec. (3225042.90 ticks)
+  Real time             = 3600.37 sec. (1712908.67 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) = 3600.41 sec. (3225042.90 ticks)
+Total (root+branch&cut) = 3600.37 sec. (1712908.67 ticks)

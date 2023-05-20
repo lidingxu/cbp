@@ -4,7 +4,8 @@
  *---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/
 #include <vector>
 #include <utility>
-#include "conic_knapsack_utility.h"
+#include "estimator.h"
+#include "utilities.h"
 using namespace std;
 
 
@@ -24,12 +25,10 @@ void solve_conic_knap(
 	SCIP_Real Dalpha, /** Dalpha */
 	SCIP_Real capacity, /** capacity */
 	int numitems, /** number of items */
-	estimator & init_estimator, /** initial estimator*/
-	Pr_param & pr_param, 
+	Estimator & init_estimator, /** initial estimator*/
 	const vector<pair<int,int>>& items_same, /** items in same constraints */
 	const vector<pair<int,int>>& items_diff, /** items in same constraints */
 	const conflict_graph & conflict, /** the conflict graph*/
-	vector<SCIP_Real> & stable_center, /** the stablization center */
 	const conf & algo_conf, /** algorithm configuration*/
     list<list<int>> & sol_pool, /* solutions pools, solution items are assumed to be sorted */
 	SCIP_Real & sol_val, /** solution value */

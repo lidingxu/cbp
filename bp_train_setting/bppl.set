@@ -1,0 +1,6 @@
+limits/gap=1e-4
+limits/absgap=1e-6
+presolving/maxrestarts=0
+cbp/is_misocp=FALSE
+cbp/is_bd_tight=TRUE
+cbp/is_heur=FALSE

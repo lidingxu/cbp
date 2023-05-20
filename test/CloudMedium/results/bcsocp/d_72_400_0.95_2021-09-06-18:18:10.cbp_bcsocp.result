@@ -1,7 +1,7 @@
 d 72 400 0.95
 
 status: JobSolveStatus.FEASIBLE_SOLUTION
-soltime: 3600.09
+soltime: 3600.16
 nodes: 0
 relgap: 8200000000.0
 obj: 82.0

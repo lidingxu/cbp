@@ -1,8 +1,7 @@
-Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
 CPXPARAM_ClockType                               1
 CPXPARAM_Read_DataCheck                          1
 CPXPARAM_Threads                                 1
-CPXPARAM_RandomSeed                              202001241
 CPXPARAM_TimeLimit                               3600
 CPXPARAM_MIP_Tolerances_AbsMIPGap                1
 1 of 1 MIP starts provided solutions.
@@ -11,44 +10,44 @@ Tried aggregator 1 time.
 Reduced MIQCP has 10450 rows, 30050 columns, and 50075 nonzeros.
 Reduced MIQCP has 10025 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Reduced MIQCP has 25 quadratic constraints.
-Presolve time = 0.02 sec. (24.30 ticks)
-Probing time = 0.02 sec. (10.95 ticks)
+Presolve time = 0.04 sec. (24.30 ticks)
+Probing time = 0.04 sec. (10.98 ticks)
 Clique table members: 10000.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
-Root relaxation solution time = 0.02 sec. (44.15 ticks)
+Root relaxation solution time = 0.04 sec. (44.52 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                           25.0000        0.0000           100.00%
-      0     0       20.8132     0       25.0000        0.0000      874  100.00%
-      0     0       21.1984    43       25.0000      Cone: 25    10957  100.00%
-      0     0       21.1984    36       25.0000      Cone: 50    11393  100.00%
-      0     0       21.1984    85       25.0000      Cone: 75    11697  100.00%
-      0     0       21.1984   119       25.0000     Cone: 100    11995  100.00%
-      0     0       21.1984   147       25.0000     Cone: 125    12354  100.00%
-      0     0       21.1984   180       25.0000     Cone: 150    12809  100.00%
-      0     0       21.1984   211       25.0000   Cone: 10175    25997  100.00%
-      0     0       21.1984 10012       25.0000   Cone: 20035    56366  100.00%
-      0     0       21.1984  9896       25.0000   Cone: 23778    73854  100.00%
-      0     0       21.1984  9977       25.0000   Cone: 26579    93340  100.00%
-      0     0       21.1984  9998       25.0000   Cone: 28783   339107  100.00%
-      0     0       21.1984 10004       25.0000   Cone: 29360   354976  100.00%
-      0     0       21.1984  9599       25.0000   Cone: 33277   390108  100.00%
-      0     0       21.1984 10002       25.0000   Cone: 34475   431009  100.00%
-      0     0       21.1984 10006       25.0000   Cone: 35500   664862  100.00%
-      0     0       21.1984  9602       25.0000   Cone: 36115   699712  100.00%
-      0     0       21.1984 10002       25.0000   Cone: 38160   740282  100.00%
-      0     0       21.1984 10003       25.0000   Cone: 41644   939578  100.00%
-      0     0       21.1984 10001       25.0000        0.0000   939578  100.00%
+      0     0       20.8132     0       25.0000        0.0000      865  100.00%
+      0     0       21.1984    42       25.0000      Cone: 25    10956  100.00%
+      0     0       21.1984    37       25.0000      Cone: 50    11390  100.00%
+      0     0       21.1984    84       25.0000      Cone: 75    11736  100.00%
+      0     0       21.1984   115       25.0000     Cone: 100    12186  100.00%
+      0     0       21.1984   150       25.0000     Cone: 125    12664  100.00%
+      0     0       21.1984   175       25.0000     Cone: 150    13115  100.00%
+      0     0       21.1984   202       25.0000   Cone: 10175    26557  100.00%
+      0     0       21.1984 10011       25.0000   Cone: 19834    50516  100.00%
+      0     0       21.1984  9791       25.0000   Cone: 22845    66941  100.00%
+      0     0       21.1984  9531       25.0000   Cone: 27460    97170  100.00%
+      0     0       21.1984  9978       25.0000   Cone: 30328   119266  100.00%
+      0     0       21.1984  9998       25.0000   Cone: 32218   150160  100.00%
+      0     0       21.1984  9998       25.0000   Cone: 33333   173573  100.00%
+      0     0       21.1984  9596       25.0000   Cone: 35400   211957  100.00%
+      0     0       21.1984 10005       25.0000   Cone: 36441   494604  100.00%
+      0     0       21.1984  9202       25.0000   Cone: 36967   538336  100.00%
+      0     0       21.1984 10003       25.0000   Cone: 39458   580487  100.00%
+      0     0       21.1984 10003       25.0000   Cone: 42058   622490  100.00%
+      0     0       21.1984 10006       25.0000        0.0000   622490  100.00%
 
-Cone linearizations applied:  42327
+Cone linearizations applied:  44208
 
 Root node processing (before b&c):
-  Real time             = 3600.06 sec. (3654011.51 ticks)
+  Real time             = 3600.10 sec. (1881737.23 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) = 3600.06 sec. (3654011.51 ticks)
+Total (root+branch&cut) = 3600.10 sec. (1881737.23 ticks)

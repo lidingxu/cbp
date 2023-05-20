@@ -80,7 +80,7 @@
 #include "probdata_cbp.h"
 #include "scip/cons_setppc.h"
 #include "conic_knapsack.h"
-#include "conic_knapsack_approx.h"
+#include "conic_knapsack_pwlbc.h"
 
 class UnionFindSet{
 public:
@@ -292,13 +292,13 @@ void solve_pricing(
       //normalization(new_mus,   probdata->capacity,  num_new_items);  // normalize constraints
       SCIP_Real lb_milp = 0, ub_milp = probdata->capacity;
       int piece_size = ceil((ub_milp - lb_milp) /  probdata->capacity *  full_piece_size);
-      estimator  init_estimator(probdata->capacity , lb_milp, ub_milp, piece_size);
+      BreakPoints breakpoints =  BreakPoints(probdata->capacity, lb_milp, ub_milp, piece_size);
+      Estimator  init_estimator(breakpoints);
       SCIP_Real cbp_time = numitems * 0.015;
 
       list<list<int>> new_sol_pool;
-      vector<SCIP_Real> stable_center(num_new_items, 0);
-      solve_conic_knap(scip, probdata->stat_pr, new_objs, new_mus, new_bs,   probdata->Dalpha, probdata->capacity, num_new_items,  init_estimator, probdata->pr_param
-      , new_same,  new_differ, conflict, stable_center, probdata->algo_conf, new_sol_pool,  sol_val,  sol_ub, sol_type,   stop_pricing_obj, 
+      solve_conic_knap(scip, probdata->stat_pr, new_objs, new_mus, new_bs,   probdata->Dalpha, probdata->capacity, num_new_items,  init_estimator,
+      new_same,  new_differ, conflict,  probdata->algo_conf, new_sol_pool,  sol_val,  sol_ub, sol_type,   stop_pricing_obj, 
          cbp_time < timelimit?  cbp_time : timelimit, target_bd);
       for(auto it =  new_sol_pool.begin(); it != new_sol_pool.end(); it++){
          sol_pool.push_back(vector<int>());
@@ -339,17 +339,15 @@ void solve_pricing(
          }
          //SCIPdebugMessage("%lf %lf\n", lb_milp, ub_milp);
          int piece_size = ceil((ub_milp - lb_milp) /  probdata->capacity *  full_piece_size);
-         probdata->pr_param.piece_sample_size = piece_size;
-         probdata->pr_param.ub = ub_milp;
-         probdata->pr_param.lb = lb_milp;
-         probdata->init_estimator = estimator(probdata->capacity , lb_milp, ub_milp, piece_size);
+   
+         BreakPoints breakpoints =  BreakPoints(probdata->capacity, lb_milp, ub_milp, piece_size);
+         probdata->init_estimator = Estimator(breakpoints);
          probdata->cbp_time += (log(piece_size) + 2) * 0.022;
       }
 
       list<list<int>> new_sol_pool;
-      probdata->stable_center = vector<SCIP_Real> (probdata->num_new_items, 0);
       solve_conic_knap(scip, probdata->stat_pr,  new_objs, probdata->new_mus, probdata->new_bs, probdata->Dalpha, probdata->capacity, probdata->num_new_items, 
-       probdata->init_estimator, probdata->pr_param, new_same,  probdata->new_differ, probdata->conflict, probdata->stable_center, probdata->algo_conf, new_sol_pool,  sol_val, sol_ub, sol_type,   stop_pricing_obj, 
+       probdata->init_estimator, new_same,  probdata->new_differ, probdata->conflict,  probdata->algo_conf, new_sol_pool, sol_val, sol_ub, sol_type,   stop_pricing_obj, 
        probdata->cbp_time < timelimit?  probdata->cbp_time : timelimit, target_bd);
       for(auto it =  new_sol_pool.begin(); it != new_sol_pool.end(); it++){
          sol_pool.push_back(vector<int>());
@@ -372,9 +370,8 @@ void solve_pricing(
       vector<pair<int,int>> new_same(0);
       list<list<int>> new_sol_pool;
       solve_conic_knap(scip, probdata->stat_pr, new_objs, probdata->new_mus, probdata->new_bs,  probdata->Dalpha, probdata->capacity,  probdata->num_new_items, 
-       probdata->init_estimator, probdata->pr_param, new_same,  probdata->new_differ, probdata->conflict, probdata->stable_center, probdata->algo_conf, new_sol_pool,  sol_val, sol_ub, sol_type,   stop_pricing_obj, 
+       probdata->init_estimator, new_same,  probdata->new_differ, probdata->conflict, probdata->algo_conf, new_sol_pool, sol_val, sol_ub, sol_type,   stop_pricing_obj, 
         probdata->cbp_time < timelimit?  probdata->cbp_time : timelimit, target_bd);
-      //SCIPdebugMessage("2.3\n");
       for(auto it =  new_sol_pool.begin(); it != new_sol_pool.end(); it++){
          sol_pool.push_back(vector<int>());
          vector<int> & items_bin = sol_pool.back();
@@ -384,7 +381,6 @@ void solve_pricing(
          it->clear();
       }
       new_sol_pool.clear();
-      //SCIPdebugMessage("2.4\n");
    }
    //SCIPdebugMessage("%d %d %f %d %f\n", int(sol_pool.size()) , probdata->stat_pr.col_exact, probdata->stat_pr.time_exact, probdata->stat_pr.col_heur, probdata->stat_pr.time_heur );
 }
@@ -448,7 +444,7 @@ SCIP_DECL_PRICERREDCOST(PricerConicKnap::scip_redcost)
    SCIP_Real stop_pricing_obj2 = lp_obj / probdata->global_lb;
    stop_pricing_obj = stop_pricing_obj > stop_pricing_obj2 ? stop_pricing_obj : stop_pricing_obj2;
 
-   solve_pricing(scip,  numitems,  objs,  probdata, stop_pricing_obj, timelimit, sol_pool, sol_val, sol_ub, sol_type, 1 );
+   solve_pricing(scip,  numitems,  objs,  probdata, stop_pricing_obj, timelimit, sol_pool,  sol_val, sol_ub, sol_type, 1 );
 
 
    SCIP_Real Farley_Bd_Ori =  lp_obj / sol_ub; 
@@ -542,7 +538,7 @@ SCIP_DECL_PRICERFARKAS(PricerConicKnap::scip_farkas)
    SCIP_Real sol_val = 0, sol_ub = MAXFLOAT;
    SOLTYPE_CKNAP sol_type = Unknown;
    //assert(!SCIPinDive(scip));
-   list<vector<int>> sol_pool;
+   list<vector<int>> sol_pool; /* cut pool at a node */
    solve_pricing(scip,  numitems,  objs,  probdata,  SCIP_DEFAULT_INFINITY, timelimit, sol_pool, sol_val, sol_ub,  sol_type,  0 );
 
    /*

@@ -148,14 +148,6 @@ SCIP_RETCODE ProbDataCBP::scip_trans(
    assert( objprobdata != NULL );
    assert( deleteobject != NULL );
 
-	// collect algorithm configuration
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_misocp", &algo_conf.is_misocp));
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_bd_tight", &algo_conf.is_bd_tight));
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_heur", &algo_conf.is_heur));
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_parallelscplex", &algo_conf.is_parallelscplex));
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_stablize", &algo_conf.is_stablize));
-	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_adapt_points", &algo_conf.is_adapt_points));
-
    // create and cpature transformed path varibles 
    SCIPdebugMessage("start transform !!!!!!!!!!!\n");
 
@@ -170,14 +162,14 @@ SCIP_RETCODE ProbDataCBP::scip_trans(
 	transprobdata->stat_pr = stat_pr;
 	transprobdata->algo_conf = algo_conf;
 	SCIPdebugMessage("transformed data check!");
-  // transform and cpature transformed set partition constraints
-   for (int i = 0; i < sc_conss.size(); i++) {
-	   transprobdata->sc_conss.push_back(SC_Cons(sc_conss[i]));
-	   SCIP_CALL(SCIPtransformCons(scip,  sc_conss[i].sc_cons, &transprobdata->sc_conss[i].sc_cons));
-   }
+	// transform and cpature transformed set partition constraints
+	for (int i = 0; i < sc_conss.size(); i++) {
+		transprobdata->sc_conss.push_back(SC_Cons(sc_conss[i]));
+		SCIP_CALL(SCIPtransformCons(scip,  sc_conss[i].sc_cons, &transprobdata->sc_conss[i].sc_cons));
+	}
 
 
-   transprobdata->p_vars = list<PackVar>();
+    transprobdata->p_vars = list<PackVar>();
 	for (auto it = p_vars.begin(); it != p_vars.end(); it++) {
 		transprobdata->p_vars.push_back(PackVar(*it));
 		SCIP_CALL(SCIPtransformVar(scip, it->p_var, &(transprobdata->p_vars.back().p_var)));

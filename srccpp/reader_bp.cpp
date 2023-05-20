@@ -111,7 +111,11 @@ SCIP_DECL_READERREAD(ReaderBP::scip_read) {
 	problemdata = new ProbDataCBP(numitems, capacity, Dalpha, mus, bs);
 	assert(problemdata != NULL);
 	SCIPdebugMessage("--problem data completed!\n");
-	// deletedobject
+	// deletedobject	// collect algorithm configuration
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_misocp", &problemdata->algo_conf.is_misocp));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_bd_tight", &problemdata->algo_conf.is_bd_tight));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_heur", &problemdata->algo_conf.is_heur));
+	SCIP_CALL(SCIPgetBoolParam(scip,  "cbp/is_parallelscplex", &problemdata->algo_conf.is_parallelscplex));
 	SCIP_CALL(SCIPcreateObjProb(scip, filename, problemdata, FALSE));
 
 	SCIPdebugMessage("objprob created and creating inital solutions!\n");
@@ -126,7 +130,7 @@ SCIP_DECL_READERREAD(ReaderBP::scip_read) {
 	static const char* CKNAP_PRICER_NAME =  "CKNAP_Pricer";
    	SCIP_CALL( SCIPactivatePricer(scip, SCIPfindPricer(scip, CKNAP_PRICER_NAME)) );
    
-   *result = SCIP_SUCCESS;
+    *result = SCIP_SUCCESS;
 
 	SCIPdebugMessage("--reader read completed!\n");
 	return SCIP_OKAY;

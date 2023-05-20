@@ -1,0 +1,10 @@
+limits/gap=1e-4
+limits/absgap=1e-6
+limits/time = 3600
+presolving/maxrestarts=0
+cbp/is_misocp=FALSE
+cbp/is_bd_tight=TRUE
+cbp/is_heur=FALSE
+cbp/knn_mode=2
+cbp/kneighbors=5
+cbp/point_ratio=2

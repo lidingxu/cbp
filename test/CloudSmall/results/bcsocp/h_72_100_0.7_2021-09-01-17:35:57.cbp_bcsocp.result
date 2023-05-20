@@ -1,10 +1,10 @@
 h 72 100 0.7
 
 status: JobSolveStatus.FEASIBLE_SOLUTION
-soltime: 3600.0099999999998
-nodes: 378330
-relgap: 17.04
+soltime: 3600.01
+nodes: 223982
+relgap: 16.6
 obj: 8.0
-best_bound: 6.835354199418606
+best_bound: 6.860950750835441
 relgap_round: 14.29
 first_solution: 8

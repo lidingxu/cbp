@@ -1,10 +1,10 @@
 h 72 100 0.95
 
 status: JobSolveStatus.OPTIMAL_SOLUTION
-soltime: 4.57
+soltime: 2.7
 nodes: 0
 relgap: 18.740000000000002
 obj: 6.0
-best_bound: 5.052886097702901
+best_bound: 5.052886065689836
 relgap_round: 0.0
 first_solution: 6

@@ -30,96 +30,12 @@
 #include <list>
 #include <vector>
 #include <utility>
+#include "utilities.h"
 
 using namespace scip;
 using namespace std;
 
-/*stat*/
-struct stat
-{
-   SCIP_Real time_heur = 0, time_exact = 0;
-   int col_heur = 0,    col_exact = 0;
-   SCIP_Real shf_param = 1;
-   SCIP_Real shf_log_sum_gap = 0;
-};
 
-
-struct Pr_param
-{
-  SCIP_Real lb;
-  SCIP_Real ub;
-  int piece_sample_size;
-};
-
-
-/*algorithm configuration*/
-struct conf
-{
-  SCIP_Bool is_misocp = false; // use misocp or milp relaxation? default: false
-  SCIP_Bool is_bd_tight = true; // use bound tightenning? default: true
-  SCIP_Bool is_heur = true; // use  heuristics pricing first? default: true
-  SCIP_Bool is_cut_pool = false; // use cut pool
-  SCIP_Bool is_stablize = false; // use stabilization for hybrid pricing
-  SCIP_Bool is_parallelscplex = false; // enbale cplex's parallelism
-  SCIP_Bool is_adapt_points = true; // enbale cplex's adaptive break points
-};
-
-/* conflict graph */
-class conflict_graph{
-	int numitems;
-	vector<list<int>> conflict_list;
-public:
-	explicit conflict_graph(
-		int numitems_, /** number of items */
-		const vector<pair<int,int>>& items_diff /** items in same constraints */
-	): numitems(numitems_){
-		conflict_list = vector<list<int>> (numitems_, list<int>());
-		for(auto p: items_diff){
-			conflict_list[p.first].push_back(p.second);
-			conflict_list[p.second].push_back(p.first);
-		}
-	}
-   explicit  conflict_graph(
-	){
-
-   };
-	const list<int> & get_diffs(int item) const{
-		return conflict_list[item];
-	}
-};
-
-inline size_t C2( size_t n ) { return n * ( n - 1 ) / 2; }
-
-/* template class 1d implementation of upper triangle matrix*/
-class upper_triangle: private vector<SCIP_Real>
-{
-    size_t N, P;
-public:
-    explicit  upper_triangle( size_t n  = 0) : N( n - 1), P( n )
-    {
-        this->resize( C2( P + 1 ) );
-    }
-
-    void set( size_t i, size_t j, SCIP_Real k )
-    {
-        assert(N >= j and j >= i );  this->at( C2( P - i ) + N - j ) = k;
-    }
-
-   void add( size_t i, size_t j, SCIP_Real k )
-    {
-        assert(N >= j and j >= i);  this->at( C2( P - i ) + N - j ) += k;
-    }
-
-    SCIP_Real get( size_t i, size_t j ) const
-    {
-        return (N >= j and j >= i ) ? this->at( C2( P - i ) + N - j ) : 0;
-    }
-
-   void reset()
-    {
-        fill(this->begin(), this->end(), 0);
-    }
-};
 
 /** Packing variable class */
 class PackVar{
@@ -268,14 +184,12 @@ public:
    vector<SCIP_Real> new_mus; // new items' mus
    vector<SCIP_Real> new_bs; // new items' bs
    vector<pair<int, int>> new_differ; // new different constraints 
-   vector<SCIP_Real> stable_center; // stablization center 
    int num_new_items; // the number of new items
    int piece_size; // piece wise size
-   estimator init_estimator; // initial quadratic estimator
+   Estimator init_estimator; // initial quadratic estimator
    int piece_sample_size; //  sampled piece size
    SCIP_Real cbp_time; // pricing cbp time limit
    SCIP_Real global_lb; // global lower bound
-   Pr_param pr_param; // pricing algorithm paramters */
    conflict_graph conflict; // conflict graph
    conf algo_conf; // algorithm configuration
    stat stat_pr; // statistics pricing

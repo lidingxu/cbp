@@ -82,17 +82,10 @@ SCIP_RETCODE runShell(
    SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_misocp","use cplex's misocp algorithm to solve pricing algorithm,otherwise use PLOA algorithm",  NULL,FALSE, FALSE, NULL,  NULL) );
    SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_bd_tight","apply bound tightenning",  NULL, FALSE, TRUE,  NULL, NULL) );
    SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_heur","run heuristic algorithm first (hybrid pricing)",  NULL, FALSE, TRUE, NULL,  NULL) );
-   SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_stablize","use stabilization for hybrid pricing",  NULL, FALSE, FALSE, NULL,  NULL) );
    SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_parallelscplex","enbale cplex's parallelism",  NULL, FALSE, FALSE,  NULL, NULL) );
-   SCIP_CALL( SCIPaddBoolParam(scip, "cbp/is_adapt_points", "adaptive break points",  NULL, FALSE, FALSE,  NULL, NULL) );
-
-
-   /* for column generation instances, disable restarts */
-   SCIP_CALL( SCIPsetIntParam(scip,"presolving/maxrestarts",0) );
-
-   /* parameter setting */
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/gap", 1e-4));
-   SCIP_CALL(SCIPsetRealParam(scip, "limits/absgap", 1e-6));
+   SCIP_CALL( SCIPaddIntParam(scip,  "cbp/knn_mode", " the mode of knn regression for learning breakpoints, 1: no knn search/learning, 2: uniformly weighted knn, 3: distance weighted knn",  NULL, FALSE, 1, 1, 3,  NULL, NULL) );
+   SCIP_CALL( SCIPaddIntParam(scip,  "cbp/kneighbors","the number neighbors of knn regression",  NULL, FALSE, 1, 1, 10,  NULL, NULL) );
+   SCIP_CALL( SCIPaddRealParam(scip,  "cbp/point_ratio","ratio of increasing breakpoints",  NULL, FALSE, 1, 1, 8,  NULL, NULL) );
 
    /* turn off all separation algorithms */
    SCIP_CALL( SCIPsetSeparating(scip, SCIP_PARAMSETTING_OFF, TRUE) );

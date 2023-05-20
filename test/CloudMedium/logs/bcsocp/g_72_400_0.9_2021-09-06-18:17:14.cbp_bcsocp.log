@@ -1,8 +1,7 @@
-Version identifier: 20.1.0.0 | 2020-11-10 | 9bedb6d68
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
 CPXPARAM_ClockType                               1
 CPXPARAM_Read_DataCheck                          1
 CPXPARAM_Threads                                 1
-CPXPARAM_RandomSeed                              202001241
 CPXPARAM_TimeLimit                               3600
 CPXPARAM_MIP_Tolerances_AbsMIPGap                1
 1 of 1 MIP starts provided solutions.
@@ -11,41 +10,36 @@ Tried aggregator 1 time.
 Reduced MIQCP has 14470 rows, 42070 columns, and 70105 nonzeros.
 Reduced MIQCP has 14035 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Reduced MIQCP has 35 quadratic constraints.
-Presolve time = 0.03 sec. (33.88 ticks)
-Probing time = 0.03 sec. (13.69 ticks)
+Presolve time = 0.06 sec. (33.88 ticks)
+Probing time = 0.08 sec. (13.70 ticks)
 Clique table members: 14000.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
 Parallel mode: none, using 1 thread.
-Root relaxation solution time = 0.01 sec. (32.44 ticks)
+Root relaxation solution time = 0.04 sec. (33.33 ticks)
 
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
 *     0+    0                           35.0000        0.0000           100.00%
-      0     0       20.1958     0       35.0000        0.0000      554  100.00%
-      0     0       22.0628    42       35.0000      Cone: 35    14622  100.00%
-      0     0       22.0628    41       35.0000      Cone: 70    15079  100.00%
-      0     0       22.0628   106       35.0000     Cone: 105    15480  100.00%
-      0     0       22.0628   149       35.0000     Cone: 140    15875  100.00%
-      0     0       22.0628   190       35.0000     Cone: 175    16317  100.00%
-      0     0       22.0628   233       35.0000     Cone: 210    16787  100.00%
-      0     0       22.0628   264       35.0000   Cone: 14245    35983  100.00%
-      0     0       22.0628 14030       35.0000   Cone: 27117    64414  100.00%
-      0     0       22.0628 13874       35.0000   Cone: 31976   194784  100.00%
-      0     0       22.0628 13994       35.0000   Cone: 34562   342137  100.00%
-      0     0       22.0628 11570       35.0000   Cone: 36470   360361  100.00%
-      0     0       22.0628 13602       35.0000   Cone: 39235   528787  100.00%
-      0     0       22.0628 11988       35.0000   Cone: 42054   652053  100.00%
-      0     0       22.0628 13196       35.0000   Cone: 45510   933663  100.00%
-      0     0       22.0628 12350       35.0000   Cone: 48518  1043468  100.00%
-      0     0       22.0628 14016       35.0000        0.0000  1043468  100.00%
+      0     0       20.1958     0       35.0000        0.0000      566  100.00%
+      0     0       22.0628    45       35.0000      Cone: 35    14643  100.00%
+      0     0       22.0628    43       35.0000      Cone: 70    15132  100.00%
+      0     0       22.0628   105       35.0000     Cone: 105    15517  100.00%
+      0     0       22.0628   147       35.0000     Cone: 140    15912  100.00%
+      0     0       22.0628   190       35.0000     Cone: 175    16350  100.00%
+      0     0       22.0628   223       35.0000     Cone: 210    16834  100.00%
+      0     0       22.0628   251       35.0000   Cone: 14244    36457  100.00%
+      0     0       22.0628 14028       35.0000   Cone: 27549    71051  100.00%
+      0     0       22.0628 13654       35.0000   Cone: 31800   330633  100.00%
+      0     0       22.0628 11935       35.0000   Cone: 35444   515321  100.00%
+      0     0       22.0628 10765       35.0000        0.0000   515321  100.00%
 
-Cone linearizations applied:  51775
+Cone linearizations applied:  38527
 
 Root node processing (before b&c):
-  Real time             = 3600.07 sec. (3985362.66 ticks)
+  Real time             = 3600.10 sec. (2009629.21 ticks)
 Sequential b&c:
   Real time             =    0.00 sec. (0.00 ticks)
                           ------------
-Total (root+branch&cut) = 3600.07 sec. (3985362.66 ticks)
+Total (root+branch&cut) = 3600.10 sec. (2009629.21 ticks)

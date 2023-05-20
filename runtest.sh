@@ -1,14 +1,17 @@
 #!/bin/bash
 timelimit=3600
+timebound=3800
 parallelscplex=0 # 1: use parallelism of cplex; 0: not use 
 gnuparalleltest=1 # 1: use GNU parallel to speed up test; 0: not use
-algorithms=("bphybrid" "bphybridph" "bcsocp" "bppl" "bpsocp" "bphybridphad")
+algorithms=("bcsocp" "bppl" "bpsocp"  "bphybrid") 
 datapath="data"
 testpath="test"
 settingpath="bp_setting"
 
 # create and clear test files
 #python3 ./testdir.py
+
+export PYTHONPATH=/home/lxu/software/docplex/lib/python/:$PYTHONPATH
 
 runInstance() {
     parallelscplex=$1
@@ -26,18 +29,15 @@ runInstance() {
 
     echo $timelimit $instance $benchmark $benchmarkpath $logpath $resultpath $algo
     
-    python ./checkexec.py  $benchmark $algo $instance
-    if [ $? == 1 ]
-    then
-        return 1
-    fi
+  
 
     if [ $algo == "bcsocp" ]
     then
-        python ./bc.py $timelimit $parallelscplex $instance  $benchmarkpath $logpath/$algo $resultpath/$algo
+        python3.8 ./bc.py $timelimit $parallelscplex $instance  $benchmarkpath $logpath/$algo $resultpath/$algo
         #echo $timelimit $parallelscplex $instance  $benchmarkpath $logpath/$algo $resultpath/$algo
         #echo =
     else
+	echo ""
         #echo $logpath $instance $algo $instance $algo
         build/cbp -c "set limits time $timelimit" -c  "set cbp is_parallelscplex $parallelscplex" -c "set load $settingpath/$algo.set" -c  "read $benchmarkpath/$instance" -c "opt write statistics" -c "$logpath/$algo/${instance}_${algo}.log"  -c "quit"
     fi
@@ -62,7 +62,7 @@ do
             done
         done
     else
-        parallel --will-cite --jobs 37% runInstance  "$parallelscplex" "$timelimit" "$benchmark"  ::: "$instances" :::  "${algorithms[@]}"
+        parallel --will-cite --jobs 85% --timeout $timebound runInstance  "$parallelscplex" "$timelimit" "$benchmark"  ::: "$instances" :::  "${algorithms[@]}"
         #$instances | parallel --will-cite   --dryrun  "printls {}"
         #parallel --will-cite  printls0 para ::: 1
         #parallel --will-cite  printls "$benchmark" para  ::: "$instances" :::  "${algorithms[@]}"

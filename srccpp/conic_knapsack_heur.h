@@ -3,7 +3,7 @@
  * @author Liding Xu
  *---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/
 #pragma once
-#include "conic_knapsack_utility.h"
+#include "utilities.h"
 using namespace std;
 
 /** find a feasible solution for conic knapsack problem by heuristics

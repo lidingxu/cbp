@@ -1,5 +1,5 @@
-/**@file   estimator.h
- * @brief  concave quadratic piece-wise linear estimator
+/**@file   BreakPoints.h
+ * @brief  concave quadratic piece-wise linear BreakPoints
  * @author Liding Xu
  *---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8----+----9----+----0----+----1----+----2*/
 #pragma once
@@ -12,39 +12,52 @@ using namespace std;
 
 typedef pair<SCIP_Real,  SCIP_Real> pt_info; // x, fx
 
-/** the over estimator  of (capacity-z)^2*/
-class estimator{
+/** the over BreakPoints  of (capacity-z)^2*/
+class BreakPoints{
 	SCIP_Real capacity, lb, ub;
 	list<pt_info> break_points;  //x increasing order , fx  decreasing order
 public:
-	estimator(){
+	BreakPoints(){
 	};
 	
-	// estimator constructor 
-	estimator(
+	// BreakPoints constructor 
+	BreakPoints(
 		SCIP_Real capacity_, /**  the capacity*/
 		int num_break_points_ /** the number of break points*/
 	);
 
 	// eststimator constructor with bound information
-	estimator(
+	BreakPoints(
 		SCIP_Real capacity_, /**  the capacity*/
 		SCIP_Real lb_, /** lower bound of z*/
 		SCIP_Real ub_, /** upper bound of z*/
 		int num_break_points_ /** the number of break points*/
 	);
 
+
+
 	// eststimator constructor with point vector (sorted x)
-	estimator(
+	BreakPoints(
 		SCIP_Real capacity_, /**  the capacity*/
 		SCIP_Real lb_, /** lower bound of z*/
 		SCIP_Real ub_, /** upper bound of z*/
 		vector<SCIP_Real> xs_ /** sorted x*/
 	);
 
+	// eststimator constructor with bound information and concentration information
+	BreakPoints(
+		SCIP_Real capacity_, /**  the capacity*/
+		SCIP_Real lb_, /** lower bound of z*/
+		SCIP_Real ub_, /** upper bound of z*/
+		int num_break_points_, /** the number of break points*/
+		SCIP_Real concen_lb, /** concentrate lower bound of z*/
+		SCIP_Real concen_ub, /** concentrate upper bound of z*/
+		SCIP_Real concen_ratio /** the ratio concentrate points*/
+	);
+
 	// copy constructor
-	estimator(
-		estimator & estimator_ /**  the estimator to copy*/
+	BreakPoints(
+		BreakPoints & BreakPoints_ /**  the BreakPoints to copy*/
 	);
 
 	// get break points
@@ -98,6 +111,10 @@ public:
 		return capacity;
 	}
 
+	inline int getNum(){
+		return break_points.size();
+	}
+
 	// get upper bound
 	inline SCIP_Real get_ub(){
 		return ub;
@@ -107,4 +124,25 @@ public:
 	inline SCIP_Real get_lb(){
 		return lb;
 	}
+};
+
+// Estimator
+class Estimator{
+public:
+	BreakPoints breakpoints;
+	pair<SCIP_Real, SCIP_Real> default_bd;
+	list<tuple<vector<double>, pair<SCIP_Real, SCIP_Real>, int>> estimations;
+
+	Estimator(BreakPoints & breakpoints_){
+		breakpoints = breakpoints_;
+		default_bd = make_pair(breakpoints_.get_lb(), breakpoints_.get_ub());
+	};
+
+	Estimator(){
+
+	};
+
+	pair<SCIP_Real, SCIP_Real> knnregression(const vector<SCIP_Real> & norm_cvec, int k, vector<pair<SCIP_Real, SCIP_Real>> & k_queries,  int knn_mode);
+	void add(const vector<SCIP_Real> & norm_cvec, pair<SCIP_Real, SCIP_Real> mubd);
+
 };
